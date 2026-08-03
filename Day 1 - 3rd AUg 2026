@@ -90,4 +90,54 @@ Inside Containers
 
 
 
+Dockerfile
+
+
+
+ 78  mkdir docker
+   79  cd docker
+   80  ls
+   81  vim Dockerfile
+   82  cat Dockerfile 
+   83  docker build -t myapp . 
+   84  echo  hi > mayank.html 
+   85  docker build -t myapp . 
+   86  docker images
+   87  docker run -itd -p 3434:80 myapp 
+   88  cd
+   89  ll
+   90  git clone   https://github.com/mdhack0316/dockerifle
+   91  git clone   https://github.com/mdhack0316/dockerfile
+   92  cd docker
+   93  ls
+   94  cd ..
+   95  ls
+   96  cd dockerfile/
+   97  ls
+   98  cd normalwebsite/
+   99  ls
+  100  vi Dockerfile 
+  101  vim index.html 
+  102  docker build -t mozilla . 
+  103  docker  run -itd -p 3636:80  mozilla
+  104  ls
+  105  vi index.html 
+  106  docker ps 
+  107  docker cp index.html youthful_ritchie:/var/www/html/
+  108  ls
+  109  cd ..
+  110  ls
+  111  cd pythoncodedocker/
+  112  ls
+  113  cat hello.py 
+  114  cat Dockerfile 
+  115  docker build -t python  . 
+  116  docker run -it pythn 
+  117  docker run -it python
+  118  docker run -itd  python
+  119  docker ps -a
+  120  docker logs goofy_heyrovsky 
+  121  docker logs -f  goofy_heyrovsky 
+
+
 
