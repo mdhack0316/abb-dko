@@ -141,3 +141,53 @@ Dockerfile
 
 
 
+
+
+Nammespace and  Pods
+
+
+  16  cd
+   17  kubectl get ns
+   18  kubectl get pods
+   19  kubectl create ns mayank
+   20  kubectl get pods
+   21  kubectl create ns mayank
+   22  kubectl create ns
+   23  kubectl get ns
+   24  kubectl get pods
+   25  kubectl config get-contexts
+   26  kubectl  config set-context kubernetes-admin@kubernetes  --namespace ma
+   27  kubectl  config set-context kubernetes-admin@kubernetes  --namespace mayank
+   28  kubectl get pods
+   29  kubectl run  pod1  --image nginx
+   30  kubectl get pods
+   31  kubectl get pods -owide
+   32  curl 192.168.104.10
+   33  kubectl describe pod pod1
+   34  kubectl get all
+   35  kubectl delete pod pod1
+   36  kubectl get all
+
+
+
+39  kubectl create deployment mayank --image nginx
+   40  kubectl get all
+   41  kubectl get all  -o wide
+   42  curl 192.168.104.11
+   43  kubectl get al
+   44  kubectl get all
+   45  kubectl delete pod mayank-5646945c45-6knxl
+   46  kubectl get all
+   47  kubectl delete deployment mayank
+   48  kubectl get all
+   49  kubectl run  pod1  --image nginx  --dry-run -o yaml  > pod1.yaml
+   50  vim pod1.yaml
+   51  kubectl create -f pod
+   52  kubectl create -f pod1.yaml
+   53  kubectl create deployment mayank --image nginx   --dry-run -o yaml  > dep.yaml
+   54  vim dep.yaml
+   55  kubectl create -f dep.yaml
+   56  kubectl get all
+
+
+
