@@ -1,0 +1,93 @@
+ 1  apt update && apt install docker.io -y
+
+echo  1 > /proc/sys/vm/drop_caches
+
+
+
+  1  apt update && apt install docker.io -y
+    2  history 
+    3  uname -r 
+    4  docker info | grep kernel
+    5  docker info | grep -ikernel
+    6  docker info | grep -i kernel
+    7  docker
+    8  docker images
+    9  docekr ps
+   10  docker ps 
+   11  docker ps -a
+   12  docker images
+   13  docker search hello
+   14  docker pull  hello-world
+   15  docker images
+   16  docker run hello-world 
+   17  docker ps
+   18  docker ps -a
+   19  docker pull oraclelinux:8.3 
+   20  docker images
+   21  docker history oraclelinux:.3
+   22  docker history oraclelinux:8.3
+   23  docker inspect oraclelinux:8.3 
+   24  docker run  oraclelinux:8.3  
+   25  docker ps
+   26  docker ps -a
+   27  docker start happy_northcutt 
+   28  docker ps -a
+   29  docker run  -it    oraclelinux:8.3  
+   30  docker ps a
+   31  docker ps -a
+   32  docker start pedantic_wiles 
+   33  docker ps -a
+   34  docker ps
+   35  docker  attach pedantic_wiles 
+   36  docker ps -a
+   37  docker start pedantic_wiles 
+   38  docker  attach pedantic_wiles 
+   39  docker ps 
+   40  docker exec -it  pedantic_wiles   bash
+   41  docker ps -a
+   42  docker ps
+   43  free -m 
+   44  echo  1 > /proc/sys/vm/drop_caches 
+   45  free -m 
+   46  docker ps -a
+   47  docker stop pedantic_wiles 
+   48  docker ps -a
+   49  docker rename pedantic_wiles  mayank 
+   50  docker ps -a
+   51  docker run --name webapp  -it oraclelinux:8.3 
+   52  docker ps -a
+
+
+
+
+
+ 56  apt install apache2 -y
+   57  cd /var/www/html/
+   58  ls
+   59  rm -f index.html 
+   60  vi index.html
+   61  cd
+   62  systemctl start apache2
+   63  curl localhost
+   64  docker run -it --name mywebapp   oraclelinux:8.3 
+   65  curl 172.17.0.2
+   66  docker run -it --name portapp1  -p 3500:80  oraclelinux:8.3 
+   67  docker run -it --name portmap2  -p 3501:80  httpd
+   68  docker run -itd --name portmap3  -p 3502:80  httpd
+   69  docker run -itd --name portmap4  -p 3503:80  nginx
+   70  docker run -itd --name portmap5  -p 3504:80   mdhack/myserver
+   71  docker run -itd --name portmap6  -p 3505:80   mdhack/mayanknginximage
+   72  history 
+
+
+
+Inside Containers 
+
+ 2  yum install httpd -y 
+    3  echo  hello > /var/www/html/index.html 
+    4  httpd -DBACKGROUND 
+
+
+
+
+
