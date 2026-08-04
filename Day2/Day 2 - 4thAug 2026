@@ -1,0 +1,32 @@
+89  oc login -u admin -p redhat@1234
+   90  oc login -u user5 -p redhat
+   91  oc login -u admin -p redhat@1234
+   92  oc get nodes
+   93  oc project
+
+
+ 100  oc whoami
+  101  oc get nodes
+  102  oc get pods
+  103  oc project
+  104  oc get project
+  105  oc new-project  mayank
+  106  oc project
+  107  oc get pods
+  108  oc  run pod1 --image quay.io/mayank123modi/mynginx
+  109  oc ge tpods
+  110  oc get pods
+  111  oc get pods -o wide
+  112  oc exec -it pod1 -- curl localhost
+  113  oc delete pod pod1
+  114  oc get all
+  115  oc create deployment webapp --image quay.io/mayank123modi/simple-webapp
+  116  oc get all
+  117  oc get  pods -o wide
+  118  oc delete pod webapp-57b7c8d968-wchpt
+  119  oc get pods
+  120  oc get all
+  121  oc delete deployment webapp
+  122  oc get all
+
+
