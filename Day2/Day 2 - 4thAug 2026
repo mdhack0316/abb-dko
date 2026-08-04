@@ -30,3 +30,64 @@
   122  oc get all
 
 
+
+
+
+158  oc create deployment webapp1   --image quay.io/mayank123modi/strategy:v1
+  159  oc expose deployment webapp1  --port 80
+  160  oc scale deployment webapp1 --replicas 20
+  161  oc expose svc webapp1
+  162  oc get route
+  163  oc describe deployment webapp1
+  164  oc get all
+  165  oc get deployment webapp1
+  166  oc get deployment webapp1  -o wide
+  167  oc set image  deployment webapp1    strategy=quay.io/mayank123modi/strategy:v2  ; oc get pods
+  168  oc rollout history deployment webapp1
+  169  oc rollout undo  deployment webapp1
+  170  oc rollout history deployment webapp1
+  171  oc create deployment webapp2    --image quay.io/mayank123modi/strategy:v1    --dry-run -o yaml  > dep.yaml
+  172  oc delete all --all --force
+  173  vim dep.yaml
+  174  oc create -f dep.yaml
+  175  oc scale deployment webapp2 --replicas 20
+  176  oc expose deployment  webapp2  --port 80
+  177  oc expose svc webapp2
+  178  oc get route
+  179  oc describe deployment webapp2
+  180  oc get pods
+  181  #oc set image  deployment webapp2    strategy=quay.io/mayank123modi/strategy:v2  ; oc get pods
+  182  oc get deployment webapp2 -o wide
+  183  oc set image  deployment webapp2    strategy=quay.io/mayank123modi/strategy:v2  ; oc get pods
+  184  oc get pods
+  185  oc rollout history deployment webapp2
+  186  oc rollout undo  deployment webapp2 ; oc get pods
+  187  history
+
+[root@newopenshift ~]# cat dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webapp2
+  name: webapp2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: webapp2
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/strategy:v1
+        name: strategy
+        resources: {}
+status: {}
+
