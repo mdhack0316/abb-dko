@@ -1,0 +1,29 @@
+217  oc create deployment webapp1    --image quay.io/mayank123modi/strategy:v1    --dry-run -o yaml  > dep.yaml
+  218  vim dep.yaml
+  219  oc create -f dep.yaml
+  220  oc get al
+  221  oc delete deployment webapp
+  222  oc delete deployment webapp2
+  223  oc get all
+  224  oc describe pod webapp1-65c5f6d5dd-vg8vx
+  225  s
+  226  ls
+  227  oc get pods
+  228  oc scale deployment test1  --replicas 20
+  229  oc get pods
+  230  oc scale deployment test1  --replicas 1
+  231  oc get svc
+  232  oc create quota mayank  --hard=pods=5,services=2
+  233  oc scale deployment test1  --replicas 8
+  234  oc get pods
+  235  oc get all
+  236  oc get all
+  237  oc get quota
+  238  oc expose deployment test1 --port 80
+  239* oc get quota
+  240  oc expose deployment test1 --port 80  --name test11
+  241  oc delete quota mayank
+  242  oc delete limits
+  243  oc get  limits
+  244  oc delete limits mylr
+  245  oc delete all --all --force
