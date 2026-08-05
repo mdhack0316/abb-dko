@@ -27,3 +27,34 @@
   243  oc get  limits
   244  oc delete limits mylr
   245  oc delete all --all --force
+
+
+
+Scaling 
+
+
+ 256  oc get all
+  257  oc create deployment mayank --image quay.io/mayank123modi/mynginx
+  258  oc get all
+  259  oc scale deployment mayank --replicas 20
+  260  oc get pods
+  261  oc scale deployment mayank --replicas 1
+  262  oc get pods
+  263  ls
+  264  vim hpa-dep.yaml
+  265  oc cre -f hpa-dep.yaml
+  266  oc create -f hpa-dep.yaml
+  267  oc get all
+  268  oc delete deploymet mayank
+  269  oc delete deployment mayank
+  270  oc autoscale deployment php-apache  --cpu-percent=50  --max=10 --min=1
+  271  oc get hpa
+  272  oc adm top pod
+  273  oc get hpa
+  274  oc adm top pod
+  275  oc get pods
+  276  watch oc get pods
+  277  oc get hpa
+  278  watch oc get pods
+  279  history
+
