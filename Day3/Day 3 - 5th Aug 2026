@@ -185,3 +185,36 @@ spec:
   restartPolicy: Always
 status: {}
 [root@newopenshift code]#
+
+
+
+
+
+
+249  oc new-app https://github.com/mdhack0316/openshiftphp   --as-deployment-config
+  250  yum install git -y
+  251  oc new-app https://github.com/mdhack0316/openshiftphp   --as-deployment-config
+  252  oc get build
+  253  oc get  pods
+  254  oc logs openshiftphp-1-build
+  255  oc logs -f  openshiftphp-1-build
+  256  oc get pods
+  257  oc logs openshiftphp-1-deploy
+  258  oc get all
+  259  oc expose service openshiftphp
+  260  oc get route
+  261  oc get all
+  262  oc start-build openshiftphp
+  263  oc get pods
+
+
+
+
+
+
+https://github.com/mdhack0316/openshiftphp
+
+
+
+https://github.com/mdhack0316/nodejs-openshift   
+
