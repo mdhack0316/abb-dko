@@ -58,3 +58,130 @@ Scaling
   278  watch oc get pods
   279  history
 
+
+
+
+Cm and secret 
+
+
+200  oc run mydb   --image quay.io/mayank123modi/mysl
+  201  oc deelte pod mydb
+  202  oc delete pod mydb
+  203  oc run mydb   --image quay.io/mayank123modi/mysql
+  204  oc get pods
+  205  oc logs mydb
+  206  oc run mydb1   --image quay.io/mayank123modi/mysql   --env MYSQL_ROOT_PASSWORD=test@123
+  207  oc get pods
+  208  oc logs mydb1
+  209  oc describe pod mydb1
+  210  oc exec -it  mydb1   -- env
+  211  oc exec -it  mydb1   -- mysql -u root -p test@123
+  212  oc exec -it  mydb1   -- mysql -u root -p
+  213  oc run mydb2   --image quay.io/mayank123modi/mysql   --env MYSQL_ROOT_PASSWORD=test@123      --env  MYSQL_DATABASE=mayank  --env MYSQL_USER=qwerty   --env MYSQL_PASSWORD=abb@123  --dry-run -o yaml >     mydb.yml
+  214  vim mydb.yml
+  215  oc create -f mydb.yml
+  216  oc get pods
+  217  oc describe pod mydb2
+  218  oc exec -it mydb2 -- env
+  219  oc exec -it mydb2 -- mysql -u root -p
+  220  oc exec -it mydb2 -- mysql -u qwerty -p
+  221  cat mydb.yml
+  222  vim  myenvfile
+  223  oc create configmap mayank --from-env-file myenvfile
+  224  oc get cm
+  225  oc describe cm mayank
+  226  oc create secret generic  mayank --from-env-file myenvfile
+  227  oc get secret mayank
+  228  oc describe secret mayank
+  229  oc get secret mayank -o yaml
+  230  echo   YWJiQDEyMw==   | base64 -d
+  231  ls
+  232  cp mydb.yml   cmmydb.yaml
+  233  vim cmmydb.yaml
+  234  cp cmmydb.yaml secretmydb.yaml
+  235  vim secretmydb.yaml
+  236  oc create -f cmmydb.yaml  -f secretmydb.yaml
+  237  oc get al
+  238  oc get all
+  239  oc describe pod cmmydb
+  240  oc exec -it cmmydb -- env
+  241  oc exec -it secretmydb -- env
+  242  cat cmmydb.yaml
+  243  history
+
+
+
+
+[root@newopenshift code]# cat mydb.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mydb2
+  name: mydb2
+spec:
+  containers:
+  - env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: test@123
+    - name: MYSQL_DATABASE
+      value: mayank
+    - name: MYSQL_USER
+      value: qwerty
+    - name: MYSQL_PASSWORD
+      value: abb@123
+    image: quay.io/mayank123modi/mysql
+    name: mydb2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+
+
+
+[root@newopenshift code]# cat cmmydb.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mydb2
+  name: cmmydb
+spec:
+  containers:
+  - envFrom:
+    - configMapRef:
+        name: mayank
+    image: quay.io/mayank123modi/mysql
+    name: mydb2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+
+
+
+
+[root@newopenshift code]# cat secretmydb.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mydb2
+  name: secretmydb
+spec:
+  containers:
+  - envFrom:
+    - secretRef:
+        name: mayank
+    image: quay.io/mayank123modi/mysql
+    name: mydb2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+[root@newopenshift code]#
